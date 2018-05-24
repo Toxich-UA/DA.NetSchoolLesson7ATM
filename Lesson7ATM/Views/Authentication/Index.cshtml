@@ -1,0 +1,26 @@
+﻿@model Lesson7ATM.Models.LoginModel
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    <div class="form-signin">
+        <form class="form-signin">
+
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label for="CardNumber" class="sr-only">Card number</label>
+            @Html.ValidationSummary(true)
+            <input type="text" id="CardNumber" name="CardNumber" class="form-control" placeholder="Card number" required title="Must be 16 characters" autofocus="" pattern=".{16}">
+            @Html.ValidationMessageFor(m => m.CardNumber)
+            <label for="PinCode" class="sr-only">Pin code</label>
+            <input type="password" id="PinCode" name="PinCode" class="form-control" placeholder="Pin code" required title="Must be 4 characters" pattern=".{4}">
+            @Html.ValidationMessageFor(m => m.PinCode)
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+        </form>
+    </div>
+
+}
