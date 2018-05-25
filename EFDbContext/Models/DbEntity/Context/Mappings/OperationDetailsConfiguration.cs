@@ -32,6 +32,7 @@ namespace EFDbContext.Models.DbEntity.Context.Mappings
 
             
             HasRequired(x => x.Operations).WithMany(x => x.OperationDetailses).Map(x=>x.MapKey("OperationID")).WillCascadeOnDelete(false);
+            
         }
     }
 }

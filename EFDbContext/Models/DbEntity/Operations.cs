@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.SqlClient;
+using System.Runtime.Serialization;
 
 namespace EFDbContext.Models.DbEntity
 {
@@ -11,12 +14,11 @@ namespace EFDbContext.Models.DbEntity
         public string OutId { get; set; }
     
         public decimal Amount { get; set; }
-        
         public DateTime OperationTime { get; set; }
 
-        public Cards InCard { get; set; }
-        public Cards OutCard { get; set; }
+        public Card InCard { get; set; }
+        public Card OutCard { get; set; }
 
-        public List<OperationDetails> OperationDetailses { get; set; }
+        public virtual List<OperationDetails> OperationDetailses { get; set; }
     }
 }

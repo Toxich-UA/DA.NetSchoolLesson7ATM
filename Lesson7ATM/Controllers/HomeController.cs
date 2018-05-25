@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ATMBusinessLogic;
+using EFDbContext.Models.DbEntity;
+using Lesson7ATM.Models;
 
 namespace Lesson7ATM.Controllers
 {
@@ -11,21 +14,14 @@ namespace Lesson7ATM.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            CardsService cardsService = new CardsService();
+            Card currentUser = cardsService.GetAllCardInfo(cardsService.CurrentCardNumber);
+
+
+            List<Operations> operations = cardsService.GetAllCardOperations(cardsService.CurrentCardNumber);
+
+            return View(new CardOperationViewModel(){Card = currentUser, Operations = operations});
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

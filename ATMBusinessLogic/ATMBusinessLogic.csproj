@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="CardsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ClientService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EFDbContext\EFDbContext.csproj">

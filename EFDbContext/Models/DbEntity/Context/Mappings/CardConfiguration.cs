@@ -2,12 +2,12 @@
 
 namespace EFDbContext.Models.DbEntity.Context.Mappings
 {
-    internal class CardConfiguration : EntityTypeConfiguration<Cards>
+    internal class CardConfiguration : EntityTypeConfiguration<Card>
     {
 
         public CardConfiguration()
         {
-            ToTable("Cards", "dbo");
+            ToTable("Card", "dbo");
             HasKey(x => x.CardId);
 
             Property(x => x.CardId)
@@ -38,7 +38,7 @@ namespace EFDbContext.Models.DbEntity.Context.Mappings
 
             // Foreign keys
             HasRequired(a => a.Client).WithMany(b => b.Cards).HasForeignKey(c => c.ClientId).WillCascadeOnDelete(false); // FK_Cards_Clients
-            HasRequired(x => x.OperationDetails).WithRequiredPrincipal(x => x.Cards).Map(x=>x.MapKey("CardID"));
+            HasRequired(x => x.OperationDetails).WithRequiredPrincipal(x=>x.Card).Map(x => x.MapKey("CardID"));
 
         }
     }

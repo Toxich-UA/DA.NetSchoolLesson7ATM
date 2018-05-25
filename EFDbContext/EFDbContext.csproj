@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,7 +50,7 @@
   <ItemGroup>
     <Compile Include="IBankContext.cs" />
     <Compile Include="Models\DbEntity\Addresses.cs" />
-    <Compile Include="Models\DbEntity\Cards.cs" />
+    <Compile Include="Models\DbEntity\Card.cs" />
     <Compile Include="Models\DbEntity\Clients.cs" />
     <Compile Include="Models\DbEntity\Context\BankDbContext.cs" />
     <Compile Include="Models\DbEntity\Context\Mappings\AddressesConfiguration.cs" />

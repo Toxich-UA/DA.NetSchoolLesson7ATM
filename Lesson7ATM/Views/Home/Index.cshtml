@@ -1,31 +1,115 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@model Lesson7ATM.Models.CardOperationViewModel
+@{ ViewBag.Title = "Card information"; }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<div class="CardInformation">
+    <div class="ClientInformation">
+        <table class="table">
+            <tr>
+                <td>
+                    @Html.LabelFor(x => x.Card.CardId):
+                </td>
+                <td>
+                    @Html.DisplayFor(x => x.Card.CardId)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(x => x.Card.Ballance):
+                </td>
+                <td>
+                    @Html.DisplayFor(x => x.Card.Ballance)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(x => x.Card.Client.FirstName):
+                </td>
+                <td>
+                    @Html.DisplayFor(x => x.Card.Client.FirstName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(x => x.Card.Client.LastName):
+                </td>
+                <td>
+                    @Html.DisplayFor(x => x.Card.Client.LastName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(x => x.Card.Client.Birthday):
+                </td>
+                <td>
+                    @Html.DisplayFor(x => x.Card.Client.Birthday)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(x => x.Card.Client.Address):
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(x => x.Card.Client.Address.Country):
+                            </td>
+                            <td>
+                                @Html.DisplayFor(x => x.Card.Client.Address.Country)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(x => x.Card.Client.Address.State):
+                            </td>
+                            <td>
+                                @Html.DisplayFor(x => x.Card.Client.Address.State)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(x => x.Card.Client.Address.City):
+                            </td>
+                            <td>
+                                @Html.DisplayFor(x => x.Card.Client.Address.City)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(x => x.Card.Client.Address.Address):
+                            </td>
+                            <td>
+                                @Html.DisplayFor(x => x.Card.Client.Address.Address)
+                            </td>
+                        </tr>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="Operations">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Ballance</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var operations in Model.Operations)
+                {
+                    <tr>
+                        <th>@operations.OperationId</th>
+                        <td>@operations.OperationTime</td>
+                        <td>@operations.Amount</td>
+                        <td>@operations.OperationDetailses[0].Balance</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>

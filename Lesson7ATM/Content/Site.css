@@ -26,3 +26,23 @@ textarea {
 .validation-summary-errors {
     color: red;
 }
+
+.ClientInformation{
+    width:40%;
+    height: 540px;
+    background-color:lightgray;
+    margin: 10px 5px 10px 10px;
+    padding: 10px;
+}
+.Operations{
+    width:60%;
+    background-color:lightgray;
+    margin: 10px 10px 10px 5px;
+    padding: 10px;
+}
+
+.CardInformation{
+    width:100%;
+    display:flex;
+    
+}

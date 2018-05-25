@@ -16,7 +16,7 @@ namespace EFDbContext.Models.DbEntity.Context
         }
         
         public IDbSet<Clients> Clients { get; set; }
-        public IDbSet<Cards> Cards { get; set; }
+        public IDbSet<Card> Cards { get; set; }
         public IDbSet<Addresses> Addresseses { get; set; }
         public IDbSet<Operations> Operations { get; set; }
         public IDbSet<OperationDetails> OperationDetails { get; set; }

@@ -7,7 +7,7 @@ namespace EFDbContext.Models.DbEntity
     {
         public Clients()
         {
-            Cards = new List<Cards>();
+            Cards = new List<Card>();
         }
 
         public int ClientId { get; set; }
@@ -16,8 +16,8 @@ namespace EFDbContext.Models.DbEntity
         public DateTime Birthday { get; set; }
         public string PhoneNamber { get; set; }
 
-        public ICollection<Cards> Cards { get; set; }
+        public ICollection<Card> Cards { get; set; }
 
-        public Addresses Address { get; set; }
+        public virtual Addresses Address { get; set; }
     }
 }
