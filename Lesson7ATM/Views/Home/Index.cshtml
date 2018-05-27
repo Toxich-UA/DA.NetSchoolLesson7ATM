@@ -2,6 +2,7 @@
 @{ ViewBag.Title = "Card information"; }
 
 <div class="CardInformation">
+    @Html.ValidationSummary(false)
     <div class="ClientInformation">
         <table class="table">
             <tr>
@@ -92,23 +93,23 @@
     <div class="Operations">
         <table class="table">
             <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Date</th>
-                    <th>Amount</th>
-                    <th>Ballance</th>
-                </tr>
+            <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Ballance</th>
+            </tr>
             </thead>
             <tbody>
-                @foreach (var operations in Model.Operations)
-                {
-                    <tr>
-                        <th>@operations.OperationId</th>
-                        <td>@operations.OperationTime</td>
-                        <td>@operations.Amount</td>
-                        <td>@operations.OperationDetailses[0].Balance</td>
-                    </tr>
-                }
+            @foreach (var operations in Model.Operations)
+            {
+                <tr>
+                    <th>@operations.OperationId</th>
+                    <td>@operations.OperationTime</td>
+                    <td>@operations.Amount</td>
+                    <td>@operations.OperationDetailses[0].Balance</td>
+                </tr>
+            }
             </tbody>
         </table>
     </div>

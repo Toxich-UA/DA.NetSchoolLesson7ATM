@@ -59,7 +59,7 @@
     <Compile Include="Models\DbEntity\Context\Mappings\OperationConfiguration.cs" />
     <Compile Include="Models\DbEntity\Context\Mappings\OperationDetailsConfiguration.cs" />
     <Compile Include="Models\DbEntity\Context\Mappings\OperationsTypeConfiguration.cs" />
-    <Compile Include="Models\DbEntity\OperationDetails.cs" />
+    <Compile Include="Models\DbEntity\OperationsDetails.cs" />
     <Compile Include="Models\DbEntity\Operations.cs" />
     <Compile Include="Models\DbEntity\OperationsType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

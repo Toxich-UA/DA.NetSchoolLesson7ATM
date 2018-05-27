@@ -11,7 +11,7 @@ namespace EFDbContext
         IDbSet<Addresses> Addresseses { get; set; }
         IDbSet<Operations> Operations { get; set; }
         IDbSet<OperationsType> OperationsType { get; set; }
-        IDbSet<OperationDetails> OperationDetails { get; set; }
+        IDbSet<OperationsDetails> OperationDetails { get; set; }
 
 
         int Save();

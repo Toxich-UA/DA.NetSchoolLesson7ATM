@@ -38,7 +38,6 @@ namespace EFDbContext.Models.DbEntity.Context.Mappings
 
             // Foreign keys
             HasRequired(a => a.Client).WithMany(b => b.Cards).HasForeignKey(c => c.ClientId).WillCascadeOnDelete(false); // FK_Cards_Clients
-            HasRequired(x => x.OperationDetails).WithRequiredPrincipal(x=>x.Card).Map(x => x.MapKey("CardID"));
 
         }
     }

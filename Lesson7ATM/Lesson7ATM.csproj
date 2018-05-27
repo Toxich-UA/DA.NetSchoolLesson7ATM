@@ -157,6 +157,7 @@
     </Compile>
     <Compile Include="Models\CardOperationViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\WithdrawCashModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +236,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Authentication\Index.cshtml" />
+    <Content Include="Views\Home\WithdrawCash.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

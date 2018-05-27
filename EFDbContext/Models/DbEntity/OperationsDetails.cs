@@ -1,8 +1,8 @@
 ﻿namespace EFDbContext.Models.DbEntity
 {
-    public class OperationDetails
+    public class OperationsDetails
     {
-        public OperationDetails()
+        public OperationsDetails()
         {
             Operations = new Operations();
             Card = new Card();

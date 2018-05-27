@@ -32,7 +32,7 @@ namespace ATMBusinessLogic
         }
         public Card GetAllCardInfo(string cardNumber)
         {
-           return _context.Cards.First(x => x.CardId == HttpContext.Current.User.Identity.Name);
+           return _context.Cards.FirstOrDefault(x => x.CardId == cardNumber);
         }
         public List<Operations> GetAllCardOperations(string cardNumber)
         {
@@ -40,8 +40,8 @@ namespace ATMBusinessLogic
             List<Operations> operations = new List<Operations>();
 
             currentUser.OutOperations.ForEach(x => x.Amount *= -1);
-            currentUser.InOperations.ForEach(x => x.OperationDetailses = new List<OperationDetails> { x.OperationDetailses[0] });
-            currentUser.OutOperations.ForEach(x => x.OperationDetailses = new List<OperationDetails> { x.OperationDetailses[1] });
+            currentUser.InOperations.ForEach(x => x.OperationDetailses = new List<OperationsDetails> { x.OperationDetailses[0] });
+            currentUser.OutOperations.ForEach(x => x.OperationDetailses = new List<OperationsDetails> { x.OperationDetailses[1] });
             operations.AddRange(currentUser.InOperations);
             operations.AddRange(currentUser.OutOperations);
 

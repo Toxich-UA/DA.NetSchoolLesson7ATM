@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Withdraw Cash";
+}
+[WIP]Now it work on 89%. [WIP]
+<h2>Withdraw Cash</h2>
+<div class="text-center">
+    @Html.ValidationSummary(true)
+    <form method="post" action="WithdrawCash" class="form-signin">
+        @Html.AntiForgeryToken()
+
+
+        <h1 class="h3 mb-3 font-weight-normal">Please enter cash count</h1>
+        <label for="CashCount" class="sr-only">Email address</label>
+        <input type="text" id="CashCount" name="CashCount" class="form-control" placeholder="Cash count" required autofocus>
+
+        <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Withdraw cash</button>
+    </form>
+</div>

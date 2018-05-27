@@ -19,6 +19,6 @@ namespace EFDbContext.Models.DbEntity
         public Card InCard { get; set; }
         public Card OutCard { get; set; }
 
-        public virtual List<OperationDetails> OperationDetailses { get; set; }
+        public virtual List<OperationsDetails> OperationDetailses { get; set; }
     }
 }

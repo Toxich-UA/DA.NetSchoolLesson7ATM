@@ -15,6 +15,6 @@ namespace EFDbContext.Models.DbEntity
 
         public virtual Clients Client { get; set; }
 
-        public virtual OperationDetails OperationDetails { get; set; }
+        public virtual OperationsDetails OperationDetails { get; set; }
     }
 }

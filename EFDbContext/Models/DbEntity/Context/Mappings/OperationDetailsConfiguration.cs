@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EFDbContext.Models.DbEntity.Context.Mappings
 {
-    public class OperationDetailsConfiguration : EntityTypeConfiguration<OperationDetails>
+    public class OperationDetailsConfiguration : EntityTypeConfiguration<OperationsDetails>
     {
         public OperationDetailsConfiguration()
         {
@@ -31,8 +31,9 @@ namespace EFDbContext.Models.DbEntity.Context.Mappings
 
 
             
-            HasRequired(x => x.Operations).WithMany(x => x.OperationDetailses).Map(x=>x.MapKey("OperationID")).WillCascadeOnDelete(false);
-            
+            HasRequired(x => x.Operations).WithMany(x => x.OperationDetailses).Map(x=>x.MapKey("OperationID"));
+            HasRequired(x => x.Card).WithOptional(x => x.OperationDetails).Map(x => x.MapKey("CardId"));
+
         }
     }
 }
