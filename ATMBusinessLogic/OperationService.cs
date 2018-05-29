@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using System.Linq;
 using EFDbContext.Models.DbEntity;
 using EFDbContext.Models.DbEntity.Context;
-using System.Data.Entity.Infrastructure;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
-using System.Runtime.CompilerServices;
+using System.Linq;
 
 namespace ATMBusinessLogic
 {
@@ -47,53 +44,33 @@ namespace ATMBusinessLogic
                
             };
 
-            //Have some issues with this table to add it to the database.
-
             inOperationDetails.Operations = operation;
             inOperationDetails.Amount = amount;
-            inOperationDetails.Card = inCard;
             inOperationDetails.Balance = inCard.Ballance + amount;
             inOperationDetails.OperationsType = _context.OperationsType.First(x => x.ID == 1);
             
-
             outOperationDetails.Operations = operation;
             outOperationDetails.Amount = amount;
-            outOperationDetails.Card = outCard;
             outOperationDetails.Balance = outCard.Ballance - amount;
             outOperationDetails.OperationsType = _context.OperationsType.First(x => x.ID == 2);
-
 
             inCard.Ballance += amount;
             outCard.Ballance -= amount;
 
             _context.Cards.Attach(inCard);
             _context.Cards.Attach(outCard);
-            _context.Entry(inCard).Property(x => x.Ballance).IsModified = true;
-            _context.Entry(outCard).Property(x => x.Ballance).IsModified = true;
+            _context.Entry(inCard).State = EntityState.Modified;
+            _context.Entry(outCard).State = EntityState.Modified;
             
-
             try
             {
                 _context.Operations.Add(operation);
-                _context.OperationDetails.Add(inOperationDetails);
-                _context.OperationDetails.Add(outOperationDetails);
-                //_context.Configuration.ValidateOnSaveEnabled = false;
                 _context.SaveChanges();
-                //_context.Configuration.ValidateOnSaveEnabled = true;
             }
-            catch (DbEntityValidationException e)
+            catch (Exception e)
             {
-                foreach (var validationErrors in e.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        System.Diagnostics.Debug.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                    }
-                }
-
                 return false;
             }
-
             return true;
         }
 

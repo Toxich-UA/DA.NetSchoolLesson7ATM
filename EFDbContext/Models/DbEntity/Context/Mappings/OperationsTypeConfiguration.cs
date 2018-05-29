@@ -27,7 +27,6 @@ namespace EFDbContext.Models.DbEntity.Context.Mappings
                 .IsFixedLength()
                 .IsUnicode(false)
                 .HasMaxLength(1);
-            HasRequired(x => x.OperationDetails).WithRequiredPrincipal(x => x.OperationsType).Map(x=>x.MapKey("OperationType"));
         }
     }
 }

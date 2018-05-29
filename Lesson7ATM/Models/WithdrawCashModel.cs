@@ -9,6 +9,6 @@ namespace Lesson7ATM.Models
     public class WithdrawCashModel
     {
         [Required]
-        public int CashCount { get; set; }
+        public decimal CashCount { get; set; }
     }
 }

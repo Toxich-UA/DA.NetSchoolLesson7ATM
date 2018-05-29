@@ -13,11 +13,10 @@ namespace Lesson7ATM.Controllers
     public class HomeController : Controller
     {
         private readonly CardsService _cardsService = new CardsService();
+
         public ActionResult Index()
         {
-
             Card currentUser = _cardsService.GetAllCardInfo(_cardsService.CurrentCardNumber);
-
 
             List<Operations> operations = _cardsService.GetAllCardOperations(_cardsService.CurrentCardNumber);
 
@@ -43,15 +42,12 @@ namespace Lesson7ATM.Controllers
             {
                 if (currentCard.Ballance > model.CashCount)
                 {
-//                    if (operationService.TrunsferCash(model.CashCount))
-//                    {
-//                        return RedirectToAction("Index", "Home");
-//                    }
-//                    else
-//                    {
-//                        ModelState.AddModelError("", "Something gone wrong, operation was rejected!");
-//                        return View();
-//                    }
+                    if (operationService.TrunsferCash(model.CashCount))
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    ModelState.AddModelError("", "Something gone wrong, operation was rejected!");
+                    return View();
                 }
 
                 ModelState.AddModelError("", "Not enough money on balance!");

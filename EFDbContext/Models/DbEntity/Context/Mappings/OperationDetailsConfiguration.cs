@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EFDbContext.Models.DbEntity.Context.Mappings
 {
@@ -29,10 +24,8 @@ namespace EFDbContext.Models.DbEntity.Context.Mappings
                 .HasColumnType("money")
                 .IsRequired();
 
-
-            
-            HasRequired(x => x.Operations).WithMany(x => x.OperationDetailses).Map(x=>x.MapKey("OperationID"));
-            HasRequired(x => x.Card).WithOptional(x => x.OperationDetails).Map(x => x.MapKey("CardId"));
+            HasRequired(x => x.OperationsType).WithMany(x => x.OperationDetails).Map(x => x.MapKey("OperationType"));
+            HasRequired(x => x.Operations).WithMany(x => x.OperationDetailses).Map(x => x.MapKey("OperationID"));
 
         }
     }

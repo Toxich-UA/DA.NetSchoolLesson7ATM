@@ -11,6 +11,6 @@ namespace EFDbContext.Models.DbEntity
         public int ID { get; set; }
         public string Type { get; set; }
 
-        public OperationsDetails OperationDetails { get; set; }
+        public virtual List<OperationsDetails> OperationDetails { get; set; }
     }
 }
